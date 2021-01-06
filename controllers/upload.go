@@ -32,6 +32,28 @@ func (c *UploadController) UploadFile() {
 	c.Ctx.WriteString("上传成功")
 }
 
+func (c *UploadController) UploadFiles() {
+	title := c.GetString("title")
+	logs.Info(title)
+	f1, h1, err := c.GetFile("file1")
+	if err != nil {
+		logs.Info("get file1 err ", err)
+	}
+	f2, h2, err := c.GetFile("file2")
+	if err != nil {
+		logs.Info("get file2 err ", err)
+	}
+	defer f1.Close()
+	defer f2.Close()
+	savePath := "static/upload/"
+	if !Exists(savePath) {
+		os.MkdirAll(savePath, 0644)
+	}
+	c.SaveToFile("file1", savePath+h1.Filename)
+	c.SaveToFile("file2", savePath+h2.Filename)
+	c.Ctx.WriteString("上传成功")
+}
+
 func Exists(path string) bool {
 	_, err := os.Stat(path) // os.Stat获取文件信息
 	if err != nil {

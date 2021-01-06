@@ -5,10 +5,21 @@
     <title>Upload</title>
 </head>
 <body>
+<h2>上传单个文件</h2>
 <form enctype="multipart/form-data" method="post" action="http://127.0.0.1:8080/upload/file">
     标题: <input type="text" name="title"> <br>
     文件：<input type="file" name="file"> <br>
     <input type="submit" value="提交">
 </form>
+<br>
+
+<h2>上传多个文件</h2>
+<form enctype="multipart/form-data" method="post" action="http://127.0.0.1:8080/upload/files">
+    标题: <input type="text" name="title"> <br>
+    文件1：<input type="file" name="file1"> <br>
+    文件2：<input type="file" name="file2"> <br>
+    <input type="submit" value="提交">
+</form>
+
 </body>
 </html>
