@@ -11,7 +11,7 @@ import (
 func init() {
 	database.InitDB(beego.AppConfig.String("dbDriver"))
 	models.DB = database.GetDB(beego.AppConfig.String("dbDriver"))
-	models.InitUserTale()
+	models.InitTales()
 }
 
 func main() {
