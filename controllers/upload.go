@@ -11,6 +11,8 @@ type UploadController struct {
 	beego.Controller // 继承
 }
 
+// beego上传文件
+
 // http://127.0.0.1:8080/upload
 func (c *UploadController) Upload() {
 	c.TplName = "upload/index.html"

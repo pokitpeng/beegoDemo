@@ -12,6 +12,8 @@ type ResponseStruct struct {
 	Data string
 }
 
+// beego基本使用
+
 // curl 127.0.0.1:8080/article/12
 func (c *ArticleController) GetOne() {
 	id := c.GetString(":id")
