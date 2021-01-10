@@ -53,11 +53,11 @@ func (m *Mysql) InitDB() *gorm.DB {
 		})
 	MysqlDB, err = gorm.Open(mysql.Open(args), &gorm.Config{Logger: newLogger})
 	if err != nil {
-		panic("faild to connect database,err:" + err.Error())
+		panic("failed to connect database,err:" + err.Error())
 	}
 	sqlDB, err := MysqlDB.DB()
 	if err != nil {
-		panic("faild to get sqlDB,err:" + err.Error())
+		panic("failed to get sqlDB,err:" + err.Error())
 	}
 	sqlDB.SetMaxIdleConns(m.DBMaxIdleConns) // max idle connection
 	sqlDB.SetMaxOpenConns(m.DBMaxOpenConns) // max open connection,unlimited by default

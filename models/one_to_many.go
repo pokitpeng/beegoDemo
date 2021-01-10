@@ -10,8 +10,8 @@ type Author struct {
 	Sex  string `json:"sex"`
 	Age  int    `json:"age"`
 	// 	一对多 一个作者有多本书
-	// Books []Book `gorm:"ForeignKey:AuthorId;AssociationForeignKey:Id"` // 外键配置与book表保持一致
-	Books []Book // 实际测试发现外键关联可以不用再写
+	Books []Book `json:"books" gorm:"ForeignKey:AuthorId;AssociationForeignKey:Id"` // 外键配置与book表保持一致
+	// Books []Book `json:"books"` // 实际测试发现外键关联可以不用再写
 }
 
 // TableName ...
@@ -31,7 +31,7 @@ type Book struct {
 	Name     string `json:"name"`      // 书名
 	AuthorId int    `json:"author_id"` // 作者 外键
 	// 一对一 一本书对应一个作者
-	Author Author `gorm:"ForeignKey:AuthorId;AssociationForeignKey:Id"` // AuthorId关联teacher表中的Id
+	Author Author `json:"author" gorm:"ForeignKey:AuthorId;AssociationForeignKey:Id"` // AuthorId关联teacher表中的Id
 }
 
 // TableName ...

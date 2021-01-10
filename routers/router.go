@@ -21,4 +21,6 @@ func init() {
 
 	beego.Router("/book", &controllers.BookController{}, "get:Get")
 
+	beego.Router("/student", &controllers.StudentController{}, "get:Get")
+
 }

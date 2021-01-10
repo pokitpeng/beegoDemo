@@ -47,7 +47,7 @@ func (s *Sqlite3) InitDB() *gorm.DB {
 		})
 	Sqlite3DB, err = gorm.Open(sqlite.Open(args), &gorm.Config{Logger: newLogger})
 	if err != nil {
-		panic("faild to connect database,err:" + err.Error())
+		panic("failed to connect database,err:" + err.Error())
 	}
 	return Sqlite3DB
 }

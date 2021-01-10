@@ -56,11 +56,11 @@ func (p *Postgres) InitDB() *gorm.DB {
 		})
 	PostgresDB, err = gorm.Open(postgres.Open(args), &gorm.Config{Logger: newLogger})
 	if err != nil {
-		panic("faild to connect database,err:" + err.Error())
+		panic("failed to connect database,err:" + err.Error())
 	}
 	sqlDB, err := PostgresDB.DB()
 	if err != nil {
-		panic("faild to get sqlDB,err:" + err.Error())
+		panic("failed to get sqlDB,err:" + err.Error())
 	}
 	sqlDB.SetMaxIdleConns(p.DBMaxIdleConns) // max idle connection
 	sqlDB.SetMaxOpenConns(p.DBMaxOpenConns) // max open connection,unlimited by default
